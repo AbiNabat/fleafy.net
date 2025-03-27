@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import {  Barlow } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers/ThemeProvider";
+import {ClerkProvider} from "@clerk/nextjs";
+
 
 const barlow = Barlow({
   subsets: ["latin"],
@@ -23,17 +25,19 @@ export default function RootLayout({
 }>) {
   return (
 
-    <html lang="en">
-      <body className={`${barlow}  antialiased`}>
-        <Providers >
-          {children}
-        </Providers>
+   <ClerkProvider>
+     <html lang="en">
+     <body className={`${barlow}  antialiased`}>
+     <Providers >
+       {children}
+     </Providers>
 
 
 
-      </body>
+     </body>
 
-    </html>
+     </html>
+   </ClerkProvider>
 
   );
 }
