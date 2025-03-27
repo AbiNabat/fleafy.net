@@ -27,7 +27,7 @@ export default function RootLayout({
 
    <ClerkProvider>
      <html lang="en">
-     <body className={`${barlow}  antialiased`}>
+     <body className={`${barlow}`}>
      <Providers >
        {children}
      </Providers>
