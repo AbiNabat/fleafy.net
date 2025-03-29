@@ -83,6 +83,15 @@ export async function POST(req: Request) {
 
     }
 
+    if (evt.type === 'user.deleted') {
+        const userId = JSON.parse(body).data.id;
+        await db.user.delete({
+            where: {
+                id: userId,
+            },
+        })
+    }
+
 
 
     return new Response('Webhook received', { status: 200 })
